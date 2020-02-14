@@ -29,6 +29,7 @@ const imageCount = images.length;
 
 let activeImage = 0;
 
+// Set display: flex for active image, display: none for others.
 function showImg(){
   let carImgs = document.querySelector('.carousel').getElementsByTagName('img');
   console.log(carImgs);
@@ -43,6 +44,7 @@ function showImg(){
   };
 }
 
+// Change active image by -1, update display:
 function rotateLeft(){
   activeImage--;
   while (activeImage < 0) {
@@ -51,6 +53,7 @@ function rotateLeft(){
   showImg();
 }
 
+// Change active image by +1, update display:
 function rotateRight(){
   activeImage++;
   while (activeImage >= imageCount) {
