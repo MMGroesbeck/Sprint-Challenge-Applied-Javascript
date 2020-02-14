@@ -17,3 +17,77 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const images = [
+  "./assets/carousel/mountains.jpeg",
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+]
+
+const imageCount = images.length;
+
+let activeImage = 0;
+
+function showImg(){
+  let carImgs = document.querySelector('.carousel').getElementsByTagName('img');
+  console.log(carImgs);
+  console.log('imgCount: ' + imgCount);
+  // for (let i = 0; i < imageCount; i++) {
+  //   if (i = activeImage){
+  //     carImgs[i].classList.add('active-img');
+  //   } else {
+  //     carImgs[i].classList.remove('active-img');
+  //   }
+  // };
+}
+
+function rotateLeft(){
+  activeImage--;
+  while (activeImage < 0) {
+    activeImage += imageCount;
+  }
+  showImg();
+}
+
+function rotateRight(){
+  activeImage++;
+  while (activeImage > imageCount) {
+    activeImage -= imageCount;
+  }
+  showImg();
+}
+
+function buildCarousel(imgs){
+  console.log('buildCarousel called');
+  console.log('Images: ' + imgs);
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel');
+
+  const leftButton = document.createElement('div');
+  leftButton.classList.add('left-button');
+  carousel.append(leftButton);
+  leftButton.addEventListener('click', () => {
+    rotateLeft();
+  })
+
+  imgs.forEach(thisImg => {
+    const newImg = document.createElement('img');
+    newImg.src = thisImg;
+    carousel.append(newImg);
+  });
+
+  const rightButton = document.createElement('div');
+  rightButton.classList.add('right-button');
+  carousel.append(rightButton);
+  rightButton.addEventListener('click', () => {
+    rotateRight();
+  })
+
+  return carousel;
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+console.log(carouselContainer);
+carouselContainer.append(buildCarousel(images));
+showImg();

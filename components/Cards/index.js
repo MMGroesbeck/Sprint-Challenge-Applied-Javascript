@@ -50,15 +50,15 @@ function createCard(article){
 
 const cardsContainer = document.querySelector('.cards-container');
 
-axios.get('https://lambda-times-backend.herokuapp.com/articles')
-    .then(res => {
-        // console.log(res);
-        Object.values(res.data.articles).forEach(category => {
-            category.forEach(item => {
-                cardsContainer.append(createCard(item));
-            })
-        })
-    })
-    .catch(err => {
-        console.log(`Get failed. ${err}`);
-    });
+// axios.get('https://lambda-times-backend.herokuapp.com/articles')
+//     .then(res => {
+//         // console.log(res);
+//         Object.values(res.data.articles).forEach(category => {
+//             category.forEach(item => {
+//                 cardsContainer.append(createCard(item));
+//             })
+//         })
+//     })
+//     .catch(err => {
+//         console.log(`Get failed. ${err}`);
+//     });

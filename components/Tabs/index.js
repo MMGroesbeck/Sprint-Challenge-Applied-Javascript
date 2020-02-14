@@ -19,13 +19,13 @@ function createTab(topic){
 
 const topicsDiv = document.querySelector('.topics');
 
-axios.get('https://lambda-times-backend.herokuapp.com/topics')
-    .then(res => {
-        // console.log(res);
-        res.data.topics.forEach(item => {
-            topicsDiv.append(createTab(item));
-        })
-    })
-    .catch(err => {
-        console.log(`Not completed: ` + err);
-    });
+// axios.get('https://lambda-times-backend.herokuapp.com/topics')
+//     .then(res => {
+//         // console.log(res);
+//         res.data.topics.forEach(item => {
+//             topicsDiv.append(createTab(item));
+//         })
+//     })
+//     .catch(err => {
+//         console.log(`Not completed: ` + err);
+//     });
