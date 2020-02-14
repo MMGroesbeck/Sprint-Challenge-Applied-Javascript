@@ -32,14 +32,15 @@ let activeImage = 0;
 function showImg(){
   let carImgs = document.querySelector('.carousel').getElementsByTagName('img');
   console.log(carImgs);
-  console.log('imgCount: ' + imgCount);
-  // for (let i = 0; i < imageCount; i++) {
-  //   if (i = activeImage){
-  //     carImgs[i].classList.add('active-img');
-  //   } else {
-  //     carImgs[i].classList.remove('active-img');
-  //   }
-  // };
+  console.log('imgCount: ' + imageCount);
+  for (let i = 0; i < imageCount; i++) {
+    console.log('i: ' + i);
+    if (i === activeImage){
+      carImgs[i].style.display = 'flex';
+    } else {
+      carImgs[i].style.display = 'none';
+    }
+  };
 }
 
 function rotateLeft(){
@@ -52,7 +53,7 @@ function rotateLeft(){
 
 function rotateRight(){
   activeImage++;
-  while (activeImage > imageCount) {
+  while (activeImage >= imageCount) {
     activeImage -= imageCount;
   }
   showImg();
